@@ -1,13 +1,13 @@
-import PersonCard from "./assets/components/PersonCard";
+import React from "react";
+// import {useState} from "react";  
+import PropItUp from "./components/PropItUp";
 function App() {
+  // const [age,setAge] = useState();
   return (
-    <div className="App">
-<PersonCard firstName={"Jane"} lastName={"Doe"} age={45} hairColor={"Black"}></PersonCard>
-<PersonCard firstName={"John"} lastName={"Smith"} age={36} hairColor={"Brown"}></PersonCard>
-<PersonCard firstName={"Gesmir"} lastName={"Shyti"} age={21} hairColor={"Black"}></PersonCard>
-<PersonCard firstName={"Mike"} lastName={"Tyson"} age={55} hairColor={"Bold"}></PersonCard>
-      
-    </div>
+    <>
+
+    <PropItUp firstName={"Gesmir"} lastName={"Shyti"} initialAge={21} hairColor={"Black"} />
+    </>
   );
 }
 export default App;
