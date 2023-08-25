@@ -1,16 +1,13 @@
-import { useState } from 'react'
-import FirstCMP from './assets/components/FirstCMP'
-import SecondCMP from './assets/components/SecondCMP'
-
+import PersonCard from "./assets/components/PersonCard";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-  <FirstCMP></FirstCMP>
-  <SecondCMP></SecondCMP>
-    </>
-  )
+    <div className="App">
+<PersonCard firstName={"Jane"} lastName={"Doe"} age={45} hairColor={"Black"}></PersonCard>
+<PersonCard firstName={"John"} lastName={"Smith"} age={36} hairColor={"Brown"}></PersonCard>
+<PersonCard firstName={"Gesmir"} lastName={"Shyti"} age={21} hairColor={"Black"}></PersonCard>
+<PersonCard firstName={"Mike"} lastName={"Tyson"} age={55} hairColor={"Bold"}></PersonCard>
+      
+    </div>
+  );
 }
-
-export default App
+export default App;
