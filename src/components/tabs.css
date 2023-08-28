@@ -1,0 +1,15 @@
+.tab-button {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .tab-button.active {
+    background-color: black;
+    color: white;
+  }
+  .content-textarea{
+    width: 230px;
+    height: 100px;
+  }
