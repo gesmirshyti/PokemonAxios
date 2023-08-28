@@ -5,8 +5,8 @@ import { Client as Styletron } from 'styletron-engine-atomic';
 const engine = new Styletron();
 function App() {
   const tabsData = [
-    { label: 'Tab 1', content: 'Content for Tab 1' },
-    { label: 'Tab 2', content: 'Content for Tab 2' },
+    { label: 'Tab 1', content: 'Content for Tab 1', onClick: () => console.log('Tab 1 clicked') },
+    { label: 'Tab 2', content: 'Content for Tab 2', onClick: () => console.log('Tab 2 clicked') },
     { label: 'Tab 3', content: 'Content for Tab 3' },
   ];
 
