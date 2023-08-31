@@ -2,61 +2,50 @@ import React, { useState } from "react";
 import './App.css'
 
 function App() {
-  const [input, setInput] = useState("");
-  const [list, setList] = useState([]);
-
-  const addTodo = (todo) => {
-    const newTodo = {
-      id: Math.random(),
-      todo: todo,
-      completed: false,
-    };
-    setList([...list, newTodo]);
-    setInput(""); // Clear input box
-  };
-
-  const deleteTodo = (id) => {
-    const newList = list.filter((todo) => todo.id !== id);
-    setList(newList);
-  };
-
-  const handleToggleComplete = (id) => {
-    const updatedList = list.map((todo) => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          completed: !todo.completed,
-        };
-      }
-      return todo;
-    });
-    setList(updatedList);
-  };
-
-  return (
-    <div>
-      <h1>Todo List</h1>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button onClick={() => addTodo(input)}>Add</button>
-      <ul>
-        {list.map((todo) => (
-          <li key={todo.id} className={todo.completed ? "completed" : ""}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => handleToggleComplete(todo.id)}
-            />
-            {todo.todo}
-            <button onClick={() => deleteTodo(todo.id)}>&times;</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default App;
+    function tossCoin() {
+        // Simulate a coin toss by generating random "heads" or "tails"
+        return Math.random() > 0.5 ? "heads" : "tails";
+    }
+    
+    function fiveHeadsAsync() {
+        return new Promise((resolve, reject) => {
+            let headsCount = 0;
+            let attempts = 0;
+    
+            function flipCoin() {
+                attempts++;
+                let result = tossCoin();
+                console.log(`${result} was flipped`);
+                if (result === "heads") {
+                    headsCount++;
+                } else {
+                    headsCount = 0;
+                }
+    
+                if (headsCount === 5) {
+                    resolve(`It took ${attempts} tries to flip five "heads"`);
+                } else {
+                    flipCoin();
+                }
+            }
+    
+            flipCoin();
+        });
+    }
+    
+    fiveHeadsAsync()
+        .then(result => {
+            console.log(result);
+            console.log("This is run after the fiveHeadsAsync function completes");
+        })
+        .catch(error => {
+            console.error("An error occurred:", error);
+        });
+    
+    
+    return (
+      <div className="App"></div>
+      );
+    }
+    
+    export default App;
