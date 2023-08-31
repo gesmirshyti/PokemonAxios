@@ -24,6 +24,8 @@ function App() {
     
                 if (headsCount === 5) {
                     resolve(`It took ${attempts} tries to flip five "heads"`);
+                } else if (attempts > 100) {
+                    reject("Coin was flipped more than 100 times without getting five heads.");
                 } else {
                     flipCoin();
                 }
