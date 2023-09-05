@@ -1,13 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokémon List</title>
+</head>
+<body>
+    <div id="root">
+        <ul id="pokemon-list"></ul>
+    </div>
+    <script>
+        // Function to fetch and display Pokémon names
+        function PokemonApi() {
+            fetch("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
+                .then(response => response.json())
+                .then(data => {
+                    const pokemonList = data.results;
+                    const pokemonListElement = document.getElementById("pokemon-list");
+                    pokemonListElement.innerHTML = '';
+                    pokemonList.forEach(pokemon => {
+                        const listItem = document.createElement("li");
+                        listItem.textContent = pokemon.name;
+                        pokemonListElement.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching Pokémon data:', error);
+                });
+        }
+        PokemonApi();
+    </script>
+</body>
 </html>
