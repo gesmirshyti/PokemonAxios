@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import './App.css'
-// import PokemonApi from "./components/PokemonAPI";
-
+import React from "react";
+import LearningApi from "./components/LearningApi";
 function App() {
-    }
-    
-    export default App;
+  return (
+    <>
+    <LearningApi/>
+    </>
+  );
+}
+export default App;
